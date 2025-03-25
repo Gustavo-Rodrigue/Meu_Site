@@ -27,3 +27,32 @@ window.addEventListener('scroll', () => {
         document.body.style.overflow = 'auto';
     }
 });
+
+// ====== Navegação ativa ======
+// Seleciona todos os links de navegação
+const navLinks = document.querySelectorAll('.navlist a')
+
+// Função para adicionar a classe 'active' no link clicado
+function activeLink(){
+    navLinks.forEach(item => item.classList.remove('active'))
+    this.classList.add('active');
+}
+
+// Adiciona um evento de clique no link de navegação
+
+navLinks.forEach(item => item.addEventListener('click', activeLink));
+
+// Alternar modo claro/escuro
+// Função para alternar entre os temas
+function toggleMode(){
+    const html = document.documentElement;
+    html.classList.toggle('light');
+
+
+    // Salva o tema escolhido no "Armazenamento Local (LocalStorage)"
+    const mode = html.classList.contains('light') ? 'light' : 'dark';
+    localStorage.setItem('theme', mode);
+
+    // Alterar aparência do título
+    updateTextColor();
+}
