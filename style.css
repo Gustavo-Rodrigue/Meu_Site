@@ -437,6 +437,7 @@ img.balls {
   position: absolute;
   bottom: -6rem;
   right: 5rem;
+  width: 20%;
 }
 
 /* ------------ skills ------------------ */
