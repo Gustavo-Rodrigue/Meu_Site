@@ -56,3 +56,15 @@ function toggleMode(){
     // Alterar aparência do título
     updateTextColor();
 }
+
+// Função que altera a cor do texto de acordo com o tema
+function updateTextColor(){
+    currentColor = document.documentElement.classList.contains('light') ? 'black' : '#fff';
+    titleElement.style.color = currentColor;
+}
+
+// carrega o tema salvo no LocalStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme){
+    document.documentElement.classList.toggle('light', savedTheme === 'light');
+}
