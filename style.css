@@ -35,6 +35,8 @@
   --logo-linkedin: url("./img/logo-linkedin-black.svg");
   --logo-linkedin-hover: url("./img/logo-linkedin-purple.png");
   
+
+  --figure-4: url("img/laptop-branca.png");
   --button-text-color-hover: #000000;
 
   --bg-contact: url("./img/bg-contact-white.png");
@@ -66,6 +68,7 @@
   --logo-linkedin: url("./img/logo-linkedin-white.svg");
   --logo-linkedin-hover: url("./img/logo-linkedin-purple.png");
 
+  --figure-4: url("img/laptop-preto.png");
   --button-text-color-hover: #ffffff;
 
   --bg-contact: url("./img/bg-contact-dark.png");
@@ -207,6 +210,7 @@ figure {
   transform: scale(0.9);
 }
 
+
 /* ==================== MENU HAMBURGUER ==================== */
 #menu-icon {
   display: none; /* Esconder em telas grandes */
@@ -238,7 +242,9 @@ section {
   width: 40%;
   position: absolute;
   z-index: -2;
-  right: 5rem;
+  right: 7rem;
+  border-radius: 10px;
+
 }
 
 .home-presentation {
@@ -564,7 +570,7 @@ img.balls {
 }
 
 .row {
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   transition: all 0.3s ease;
   position: relative;
