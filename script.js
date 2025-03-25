@@ -46,11 +46,11 @@ navLinks.forEach(item => item.addEventListener('click', activeLink));
 // Função para alternar entre os temas
 function toggleMode(){
     const html = document.documentElement;
-    html.classList.toggle('light');
+    html.classList.toggle('dark');
 
 
     // Salva o tema escolhido no "Armazenamento Local (LocalStorage)"
-    const mode = html.classList.contains('light') ? 'light' : 'dark';
+    const mode = html.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', mode);
 
     // Alterar aparência do título
@@ -59,14 +59,14 @@ function toggleMode(){
 
 // Função que altera a cor do texto de acordo com o tema
 function updateTextColor(){
-    currentColor = document.documentElement.classList.contains('light') ? 'black' : '#fff';
+    currentColor = document.documentElement.classList.contains('dark') ? '#fff' : 'black';
     titleElement.style.color = currentColor;
 }
 
 // carrega o tema salvo no LocalStorage
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme){
-    document.documentElement.classList.toggle('light', savedTheme === 'light');
+    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
 }
 
 // ===== Animação do titulo principal
@@ -75,7 +75,7 @@ const titleElement = document.querySelector('#name');
 const text = "GUSTAVO";
 let index = 0;
 let isTyping = true;
-let currentColor = document.documentElement.classList.contains('light') ? 'black' : '#fff';
+let currentColor = document.documentElement.classList.contains('dark') ? '#fff' : 'black';
 
 // Função para animar o texto (digitando e apagando)
 function animateText(){
@@ -93,7 +93,7 @@ function animateText(){
         } else {
             isTyping = true;
             // alterna a cor entre preto e laranja
-            currentColor = currentColor === (document.documentElement.classList.contains('light') ? 'black' : '#fff') ? '#543290' : (document.documentElement.classList.contains('light') ? 'black' : '#fff');
+            currentColor = currentColor === (document.documentElement.classList.contains('dark') ? '#fff' : 'black') ? '#543290' : (document.documentElement.classList.contains('dark') ? '#fff' : 'black');
             titleElement.style.color = currentColor;
         }
     }
@@ -150,4 +150,133 @@ sections.forEach((section) => observer.observe(section));
 document.querySelector('.top a').addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth'}); // Rola suavemmente o topo da página
-})
+});
+
+// =================== CARROSSEL DE PROJETOS ==============
+// Seleciona os elementos do carrossel
+const carouselSlides = document.querySelector('.carousel-slides');
+const slides = document.querySelectorAll('.carousel-slide');
+const prevButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carrousel-button.next');
+let currentSlide = 0;
+let autoSlideInterval;
+
+// Função para exibir o slide atual
+
+function showSlide(slideIndex) {
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+        slide.style.display = 'none';
+    });
+
+    // Ajusta o índice do slide para garantir que ele esteja dentro dos limites
+    if (slideIndex < 0) currentSlide = slides.length -1;
+    else if (slideIndex >= slides.length) currentSlide = 0;
+    else currentSlide = slideIndex;
+
+    // Exibe o slide atual 
+    slides[currentSlide].classList.add('active');
+    slides[currentSlide].style.display = 'flex';
+    updateSlidePosition();
+}
+
+// Função para atualizar a posição do carrossel
+function updateSlidePosition() {
+    const slideWidth = slides[0].offsetWidth;
+    carouselSlides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}
+
+// Função para avançar para o próximo slide
+function nextSlide() {
+    showSlide(currentSlide + 1);
+    resetAutoSlide();// Reinicia o intervalo da transição automática
+}
+
+// função para voltar o slide anterior
+function  prevSide() {
+    showSlide(currentSlide - 1);
+    resetAutoSlide();
+}
+
+// Função para iniciar a transição automática dos slides
+function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000);// Avança o slide a cada 5s
+}
+
+// função para reiniciar a ransição automática
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+// Adiciona evento de clique aos botões de navegação do carrossel
+nextButton.addEventListener('click', nextSlide);
+prevButton.addEventListener('click', prevSlide);
+
+// Iniciaiza o carrossel ao carregar a página
+window.addEventListener('load', () => {
+    showSlide(currentSlide);
+    startAutoSlide();
+
+    // Atualiza a posição do carrossel ao redimensionar a janela
+    Window.addEventListener('resize', () => {
+        updateSlidePosition();
+    });
+});
+
+// Pausa a transição automática ao passar o mouse sobre o carrossel
+carouselSlides.parentElement.addEventListener('mouseenter', () => {
+    clearInterval(autoSlideInterval);
+});
+
+// Retoma a transição automática ao remover o mouse do carrossel
+carouselSlides.parentElement.addEventListener('mouseleave', startAutoSlide);
+
+// ========== FORMULÀRIO DE CONTATO ================
+// seleciona o formulário de contato e a mensagem de agradecimento
+const contactForm = document.getElementById('contactForm');
+const thankYouMessage = document.getElementById('thankYouMessage');
+
+// Adiciona um evento de envio de formulário
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    thankYouMessage.style.display = 'block' // Exibe a mensagem de agradecimento
+
+    // Envia os dados do formulário usando Fetch API
+    const formData = new FormData(contactForm);
+    fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json'}
+    })
+    .then(response => {
+        if (response.ok) {
+            setTimeout(() => window.location.reload(), 2000); // Recarrega a página após 2 segundos
+        } else {
+            alert('Erro ao enviar formulário. Tente novamente.');
+        }
+    })
+    .catch(() => alert('Erro na conexão. Tente novamente.'));
+});
+
+// ================ ANIMAÇÂO DA SEÇÂO "SOBRE MIM" ===========
+// Seleciona a seção "Sobre Mim"
+const abouSection = document.querySelector('.about');
+
+// Função para verificar se a seção está visível na tela
+function checkAboutVisibility() {
+    const rect = aboutSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // Verifica se a seção está dentro da área visível da tela
+    if (rect.top <= windowHeight * 0.75 && rect.botom >= 0) {
+        abouSection.classList.add('visible');// Adiciona a classe "vissible"
+        window.removeEventListener('scroll', checkAboutVisibility); // Remove o listener após a animação
+    }
+}
+
+// Adiciona um listener para o evento de scroll
+window.addEventListener('scroll', checkAboutVisibility);
+
+// Verifica a visibilidade ao carregar a página (caso a seção já esteja visível)
+checkAboutVisibility();

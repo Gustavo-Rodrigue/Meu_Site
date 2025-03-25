@@ -12,45 +12,14 @@
 :root {
   font-size: 62.5%;
 
-  --bg-color: #000000;
+  --bg-color: #ffffff;
   --second-bg-color: #704ab3;
-  --text-color: #ffffff;
+  --text-color: #000000;
   --second-text-color: #543290;
   --card-bg-color: #42247beb;
 
   --first-font: 'Lato', sans-serif;
   --second-font: 'Inter', sans-serif;
-
-  --highlight-color: rgba(255, 255, 255, 0.2);
-  --switch-bg-url: url("./img/moon-star.svg");
-  
-  --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.1);
-  --surface-color-hover: rgba(3, 0, 0, 0.308);
-  
-  --bg-image-home: url("./img/bg-home-dark-3.jpg");
-  --position-bg-home: 15rem -7rem;
-  --logo-github: url("./img/logo-github-white.svg");
-  --logo-github-hover: url("./img/logo-github-orange.svg");
-  --logo-linkedin: url("./img/logo-linkedin-white.svg");
-  --logo-linkedin-hover: url("./img/logo-linkedin-orange.svg");
-  
-  --button-text-color-hover: #FFFFFF;
-
-  --bg-contact: url("./img/bg-contact-dark.png");
-  --border-form: none;
-  --bg-form: rgba(24, 24, 24, 0.726);
-
-  --color-social-media: #FFFFFF;
-}
-
-.dark {
-  --bg-color: #ffffff;
-  --second-bg-color: #704ab3;
-  
-  --text-color: #000000;
-  --second-text-color: #543290;
-  --card-bg-color: #42247bcf;
 
   --highlight-color: rgba(0, 0, 0, 0.25);
   --switch-bg-url: url("./img/sun.svg");
@@ -58,14 +27,14 @@
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.1);
   --surface-color-hover: rgba(3, 0, 0, 0.308);
-
+  
   --bg-image-home: url("./img/bg-home-light-3.avif");
   --position-bg-home: -70rem 0;
   --logo-github: url("./img/logo-github-black.svg");
   --logo-github-hover: url("./img/logo-github-purple.png");
   --logo-linkedin: url("./img/logo-linkedin-black.svg");
   --logo-linkedin-hover: url("./img/logo-linkedin-purple.png");
-
+  
   --button-text-color-hover: #000000;
 
   --bg-contact: url("./img/bg-contact-white.png");
@@ -74,6 +43,38 @@
 
   --color-social-media: #6841ab;
 }
+
+.dark {
+  --bg-color: #000000;
+  --second-bg-color: #704ab3;
+  
+  --text-color: #ffffff;
+  --second-text-color: #543290;
+  --card-bg-color: #42247bcf;
+
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url("./img/moon-star.svg");
+  
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(3, 0, 0, 0.308);
+
+  --bg-image-home: url("./img/bg-home-dark-3.jpg");
+  --position-bg-home: 15rem -7rem;
+  --logo-github: url("./img/logo-github-white.svg");
+  --logo-github-hover: url("./img/logo-github-purple.png");
+  --logo-linkedin: url("./img/logo-linkedin-white.svg");
+  --logo-linkedin-hover: url("./img/logo-linkedin-purple.png");
+
+  --button-text-color-hover: #ffffff;
+
+  --bg-contact: url("./img/bg-contact-dark.png");
+  --border-form: none;
+  --bg-form: rgba(24, 24, 24, 0.726);
+
+  --color-social-media: #ffffff;
+}
+
 
 body {
   background: var(--bg-color);
@@ -156,7 +157,7 @@ nav {
   outline: 0.5rem solid var(--highlight-color);
 }
 
-.light #switch button {
+.dark #switch button {
   animation: slide-in 0.4s forwards;
 }
 
