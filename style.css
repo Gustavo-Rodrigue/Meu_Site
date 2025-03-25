@@ -39,12 +39,12 @@
 
   --bg-contact: url("./img/bg-contact-dark.png");
   --border-form: none;
-  --bg-form: rgba(69, 69, 69, 0.726);
+  --bg-form: rgba(24, 24, 24, 0.726);
 
   --color-social-media: #FFFFFF;
 }
 
-.light {
+.dark {
   --bg-color: #ffffff;
   --second-bg-color: #704ab3;
   
