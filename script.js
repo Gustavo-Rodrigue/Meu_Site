@@ -93,7 +93,7 @@ function animateText(){
         } else {
             isTyping = true;
             // alterna a cor entre preto e laranja
-            currentColor = currentColor === (document.documentElement.classList.contains('dark') ? '#fff' : 'black') ? '#543290' : (document.documentElement.classList.contains('dark') ? '#fff' : 'black');
+            currentColor = currentColor === (document.documentElement.classList.contains('dark') ? '#fff' : 'black') ? '#77099f' : (document.documentElement.classList.contains('dark') ? '#fff' : 'black');
             titleElement.style.color = currentColor;
         }
     }
@@ -260,7 +260,7 @@ contactForm.addEventListener('submit', (e) => {
 
 // ================ ANIMAÇÂO DA SEÇÂO "SOBRE MIM" ===========
 // Seleciona a seção "Sobre Mim"
-const abouSection = document.querySelector('.about');
+const aboutSection = document.querySelector('.about');
 
 // Função para verificar se a seção está visível na tela
 function checkAboutVisibility() {
@@ -269,7 +269,7 @@ function checkAboutVisibility() {
 
     // Verifica se a seção está dentro da área visível da tela
     if (rect.top <= windowHeight * 0.75 && rect.botom >= 0) {
-        abouSection.classList.add('visible');// Adiciona a classe "vissible"
+        aboutSection.classList.add('visible');// Adiciona a classe "vissible"
         window.removeEventListener('scroll', checkAboutVisibility); // Remove o listener após a animação
     }
 }
@@ -279,3 +279,4 @@ window.addEventListener('scroll', checkAboutVisibility);
 
 // Verifica a visibilidade ao carregar a página (caso a seção já esteja visível)
 checkAboutVisibility();
+

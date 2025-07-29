@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gustavo da Silva Rodrigues</title>
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./img/principal.jpg">
+  <link rel="icon" type="image/x-icon" href="./img/EU.png">
   <!-- Estilos -->
   <link rel="stylesheet" href="style.css">
     <!-- Estilos importados-->
@@ -37,12 +37,12 @@
           </div>
         </li>
         <li>
-          <a href="https://linkedin.com" target="_blank">
+          <a href="https://www.linkedin.com/in/gustavo-da-silva-rodrigues-1a824227b/" target="_blank">
             <figure id="fig1"></figure>
           </a>
         </li>
         <li>
-          <a href="https://github.com/GustavoRSenai" target="_blank">
+          <a href="https://github.com/Gustavo-Rodrigue" target="_blank">
             <figure id="fig2"></figure>
           </a>
         </li>
@@ -74,7 +74,7 @@
     <!-- Seção Sobre Mim -->
      <section class="about" id="about">
       <div class="about-img">
-        <img src="img/eu.jpg" alt="">
+        <img src="img/EU.png" alt="">
       </div>
       <div class="about-text">
         <h2><span>SOBRE </span>MIM</h2>
@@ -87,7 +87,7 @@
           Meu objetivo é criar soluções que otimizem o tempo das pessoas, automatizando tarefas repetitivas e trazendo eficiência para o dia a dia. 
         </p>
         <button class="button-cv">
-          <a href="assets/Curriculo 2025.pdf" download="CV - CodeMaster Dev" class="btn-cv"> Download CV</a>
+          <a href="assets/Curriculo 2025.pdf" download="Curriculo" class="btn-cv"> Download CV</a>
         </button>
       </div>
       <img src="img/balls.png" alt="balls" class="balls">
@@ -113,15 +113,15 @@
             <p>JavaScript</p>
           </div>
           <div class="card">
-            <img src="img/bootstrap.png" alt="ícone react.js">
+            <img src="img/bootstrap.png" alt="ícone bootstrap">
             <p>Bootstrap</p>
           </div>
           <div class="card">
-            <img src="img/C++.png" alt="ícone node.js">
+            <img src="img/C++.png" alt="ícone C++">
             <p>C++</p>
           </div>
           <div class="card">
-            <img src="img/Markdown.png" alt="ícone python">
+            <img src="img/Markdown.png" alt="ícone Markdown">
             <p>Markdown</p>
           </div>
           <div class="card">
@@ -174,33 +174,40 @@
           <div class="carousel-slide active">
             <div class="row">
               <img src="img/Cafenolar.png" alt="print site cafenolar">
-              <div class="layer">
+              <a href="https://github.com/Gustavo-Rodrigue/CafenoLar-GustavoRodrigues" target="_blank">
+                <div class="layer">
                 <h5>Café no lar</h5>
                 <p>Esse repositório que pode ser encontrado no git se refere a um site feito em CSS e HTML.</p>
               </div>
+              </a>
             </div>
           </div>
           <!-- Slide 2 - Cronometro -->
           <div class="carousel-slide">
             <div class="row">
               <img src="img/trabalho-evento-carros.png" alt="envento carros website">
-              <div class="layer">
-                <h5>Evento Carros</h5>
-                <p>Desenvolvido uma página de promoção de um evento de carros utilizado HTML e CSS.</p>
-              </div>
+              <a href="https://github.com/Gustavo-Rodrigue/ExpoCar_GustavoR" target="_blank">
+                <div class="layer">
+                  <h5>Evento Carros</h5>
+                  <p>Desenvolvido uma página de promoção de um evento de carros utilizado HTML e CSS.</p>
+                </div>
+              </a>
             </div>
           </div>
           <!-- Slide 3 - Formulário -->
           <div class="carousel-slide">
             <div class="row">
               <img src="img/Trabalho-livro.png" alt="print página form">
-              <div class="layer">
-                <h5>Trabalho livro</h5>
-                <p>Site desenvolvido com CSS, HTML e JS para promover um livro escolhido.</p>
-              </div>
+              <a href="https://github.com/Gustavo-Rodrigue/LivroPromo" target="_blank">
+                <div class="layer">
+                  <h5>Trabalho livro</h5>
+                  <p>Site desenvolvido com CSS, HTML e JS para promover um livro escolhido.</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
+        <p style="font-weight: bold;">Acesse o Github para mais projetos</p>
       </div>
     </section>
     <!-- Seção de Contato -->
@@ -212,8 +219,8 @@
       </div>
       <div class="contact-form">
         <!-- Serviço gratuito (formsubmit) que envia os dados para o e-mail descrito abaixo -->
-        <form id="contactForm" action="https://formsubmit.co/rguustavo61@gmail.com" method="POST">
-          <input type="text" name="name" placeholder="Digite se nome" required>
+        <form id="contactForm" target="_blank" action="https://formsubmit.co/rguustavo61@gmail.com" method="POST">
+          <input type="text" name="name" placeholder="Digite seu nome" required>
           <input type="email" name="email" placeholder="Digite seu melhor e-mail" required>
           <input type="hidden" name="_captcha" value="false">
           <textarea name="text" type="text" cols="35" rows="10" placeholder="Como eu posso te ajudar?" id="" required></textarea>
@@ -244,4 +251,28 @@
   <!-- Scripts -->
   <script src="script.js"></script>
 </body>
+<script>
+   const form = document.getElementById("contactForm");
+  const thankYou = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita o redirecionamento
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.reset(); // Limpa
+        thankYou.style.display = "block"; // Mostra mensagem
+      } else {
+        alert("Erro ao enviar, tente novamente.");
+      }
+    });
+  });
+</script>
 </html>

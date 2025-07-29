@@ -13,10 +13,10 @@
   font-size: 62.5%;
 
   --bg-color: #ffffff;
-  --second-bg-color: #704ab3;
+  --second-bg-color: #7e08a9;
   --text-color: #000000;
-  --second-text-color: #543290;
-  --card-bg-color: #42247beb;
+  --second-text-color: #9f0cd3;
+  --card-bg-color: #77099f;
 
   --first-font: 'Lato', sans-serif;
   --second-font: 'Inter', sans-serif;
@@ -40,19 +40,19 @@
   --button-text-color-hover: #000000;
 
   --bg-contact: url("./img/bg-contact-white.png");
-  --border-form: 2px solid #42247b;
+  --border-form: 2px solid #610a80;
   --bg-form: rgba(255, 255, 255, 0.726);
 
-  --color-social-media: #6841ab;
+  --color-social-media: #77099f;
 }
 
 .dark {
   --bg-color: #000000;
-  --second-bg-color: #704ab3;
+  --second-bg-color: #7e08a9;
   
   --text-color: #ffffff;
-  --second-text-color: #543290;
-  --card-bg-color: #42247bcf;
+  --second-text-color: #9f0cd3;
+  --card-bg-color: #77099f;
 
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url("./img/moon-star.svg");
@@ -451,7 +451,7 @@ img.balls {
 }
 
 .line {
-  border: 2px #654996 solid;
+  border: 2px #8808b7 solid;
   width: 17rem;
   margin-bottom: 1rem;
 }
@@ -507,7 +507,7 @@ img.balls {
 
 .card:hover {
   cursor: pointer;
-  background-color: #503b73;
+  background-color: #53046f;
   transform: translateY(-10px);
 }
 
